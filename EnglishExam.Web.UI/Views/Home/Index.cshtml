@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <select class="form-control" id="lstBlogTitle">
+      <option>Select Value</option>
+     
+      
+    </select>
+    </div>
+    <div class="row mt-2">
+        <label for="blogTextArea">Yazı</label>
+        <textarea class="form-control" id="blogTextArea" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 157px;">
+          
+        </textarea>
+
+         @*Question1*@
+          <input type="text" class="form-control mt-2" id="Question1" placeholder="Soru 1">
+          <div class="col-md-6 mt-2">
+               <input type="text" id="Question1_OptA" class="form-control"  placeholder="A)">
+           </div> 
+          <div class="col-md-6 mt-2">
+                <input type="text" id="Question1_OptB" class="form-control" placeholder="B)">
+          </div>
+          <div class="col-md-6 mt-2">
+               <input type="text" id="Question1_OptC"  class="form-control" placeholder="C)">
+          </div>
+          <div class="col-md-6 mt-2">
+               <input type="text" id="Question1_OptD" class="form-control" placeholder="D)">
+          </div>
+
+          <div class="container-fluid center-block w-25 mt-2">
+                <select class="form-control " id="Question1CorrectOpt">
+                   <option>Doğru Cevap</option>
+                   <option>A</option>
+                   <option>B</option>
+                   <option>C</option>
+                   <option>D</option>
+              </select>
+          </div>
+             @*Question 2*@
+          <input type="text" class="form-control mt-2" id="Question2" placeholder="Soru 2">
+          <div class="col-md-6 mt-2">
+               <input type="text" id="Question2_OptA" class="form-control" placeholder="A)">
+                  
+           </div> 
+          <div class="col-md-6 mt-2">
+                <input type="text" id="Question2_OptB" class="form-control" placeholder="B)">
+          </div>
+          <div class="col-md-6 mt-2">
+               <input type="text" id="Question2_OptC" class="form-control" placeholder="C)">
+          </div>
+          <div class="col-md-6 mt-2">
+               <input type="text" id="Question2_OptD" class="form-control" placeholder="D)">
+          </div>
+
+          <div class="container-fluid center-block w-25 mt-2">
+                <select class="form-control" id="Question2CorrectOpt">
+                   <option>Doğru Cevap</option>
+                   <option>A</option>
+                   <option>B</option>
+                   <option>C</option>
+                   <option>D</option>
+              </select>
+          </div>
+
+
+           @*Question 3*@
+          <input type="text" class="form-control mt-2" id="Question3" placeholder="Soru 3">
+          <div class="col-md-6 mt-2">
+               <input type="text" id="Question3_OptA" class="form-control" placeholder="A)">
+                  
+           </div> 
+          <div class="col-md-6 mt-2">
+                <input type="text" id="Question3_OptB" class="form-control" placeholder="B)">
+          </div>
+          <div class="col-md-6 mt-2">
+               <input type="text" id="Question3_OptC" class="form-control" placeholder="C)">
+          </div>
+          <div class="col-md-6 mt-2">
+               <input type="text" id="Question3_OptD" class="form-control" placeholder="D)">
+          </div>
+
+          <div class="container-fluid center-block w-25 mt-2">
+                <select class="form-control" id="Question3CorrectOpt">
+                   <option>Doğru Cevap</option>
+                   <option>A</option>
+                   <option>B</option>
+                   <option>C</option>
+                   <option>D</option>
+              </select>
+          </div>
+
+
+           @*Question 4*@
+          <input type="text" class="form-control mt-2" id="Question4" placeholder="Soru 4">
+          <div class="col-md-6 mt-2">
+               <input type="text" id="Question4_OptA" class="form-control" placeholder="A)">
+           </div> 
+          <div class="col-md-6 mt-2">
+                <input type="text" id="Question4_OptB" class="form-control" placeholder="B)">
+          </div>
+          <div class="col-md-6 mt-2">
+               <input type="text" id="Question4_OptC" class="form-control" placeholder="C)">
+          </div>
+          <div class="col-md-6 mt-2">
+               <input type="text" id="Question4_OptD" class="form-control" placeholder="D)">
+          </div>
+
+          <div class="container-fluid center-block w-25 mt-2">
+                <select class="form-control" id="Question4CorrectOpt">
+                   <option>Doğru Cevap</option>
+                   <option>A</option>
+                   <option>B</option>
+                   <option>C</option>
+                   <option>D</option>
+              </select>
+          </div>
+          
+         
+   </div>
+   <div class="container-fluid center-block w-25 mt-3">
+          <button class="w-100 btn btn-lg btn-primary" id="btnCreateExam"  type="submit">SINAV OLUŞTUR </button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+  
