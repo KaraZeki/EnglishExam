@@ -38,14 +38,14 @@ namespace EnglishExam.DataAccess.Repository
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        T GetById(decimal id);
+        T GetById(int id);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<T> GetByIdAsync(decimal id);
+        Task<T> GetByIdAsync(int id);
 
         /// <summary>
         /// 
@@ -120,7 +120,7 @@ namespace EnglishExam.DataAccess.Repository
         /// <param name="entity"></param>
         /// <param name="updatedEntity"></param>
         /// <returns></returns>
-        Task<T> UpdateAsync(decimal id, T entity);
+        Task<T> UpdateAsync(int id, T entity);
 
         /// <summary>
         /// 

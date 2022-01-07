@@ -190,7 +190,7 @@ namespace EnglishExam.DataAccess.Repository
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public virtual T GetById(decimal id)
+        public virtual T GetById(int id)
         {
             return _dbContext.Set<T>().Find(id);
         }
@@ -200,7 +200,7 @@ namespace EnglishExam.DataAccess.Repository
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public virtual async Task<T> GetByIdAsync(decimal id)
+        public virtual async Task<T> GetByIdAsync(int id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
         }
@@ -365,7 +365,7 @@ namespace EnglishExam.DataAccess.Repository
         /// <param name="entity"></param>
         /// <param name="updatedEntity"></param>
         /// <returns></returns>
-        public async Task<T> UpdateAsync(decimal id, T entity)
+        public async Task<T> UpdateAsync(int id, T entity)
         {
             _dbContext.Entry<T>((await _dbContext.Set<T>().FindAsync(id))).CurrentValues.SetValues(entity);
             var result = await _dbContext.SaveChangesAsync();

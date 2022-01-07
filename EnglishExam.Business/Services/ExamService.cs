@@ -3,6 +3,7 @@ using EnglishExam.DataAccess.Repository;
 using EnglishExam.Model.Concrete;
 using EnglishExam.Model.Model;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EnglishExam.Business.Services
 {
@@ -82,6 +83,28 @@ namespace EnglishExam.Business.Services
             return userReturnModel;
 
            
+        }
+
+        public UserReturnModel DeleteExam(int id)
+        {
+            var returnModel = new UserReturnModel();
+            returnModel.IsOk = false;    
+            var exam = _examRepository.GetById(id);
+            if (exam != null)
+            {
+                exam.IsDeleted = 1;
+                _examRepository.Update(exam);
+                returnModel.IsOk = true;
+                returnModel.Message = "Exam has deleted";
+            }
+            return returnModel;
+        }
+
+        public List<Exam> GetExamList()
+        {
+            var examList = _examRepository.Get(x => x.IsDeleted != 1).ToList();
+            return examList;
+            
         }
     }
 }

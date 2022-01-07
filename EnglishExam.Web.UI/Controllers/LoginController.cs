@@ -51,7 +51,7 @@ namespace EnglishExam.Web.UI.Controllers
         {
 
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Login", "Index");
+            return RedirectToAction("Index", "Login");
         }
     }
 }
