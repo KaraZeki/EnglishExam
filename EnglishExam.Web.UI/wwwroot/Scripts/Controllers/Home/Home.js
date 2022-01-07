@@ -49,39 +49,41 @@ $('#lstBlogTitle').on('change', function (e) {
 });
 
 $("#btnCreateExam").click(function () {
-
+    
+    var blogTitle= document.getElementById("blogTextArea").value;
     $.ajax({
         type: "POST",
         data: {
             Title: $("#lstBlogTitle").text(),
+            ExamText: blogTitle,
             //1
             Questin1: $("#Question1").val(),
             OptionA1: $("#Question1_OptA").val(),
             OptionB1: $("#Question1_OptB").val(),
             OptionC1: $("#Question1_OptC").val(),
             OptionD1: $("#Question1_OptD").val(),
-            Answer1:  $("#Question1CorrectOpt").val(),
+            Answer1: "Option"+$("#Question1CorrectOpt").val(),
             //2
             Questin2:$("#Question2").val(),
             OptionA2:$("#Question2_OptA").val(),
             OptionB2:$("#Question2_OptB").val(),
             OptionC2:$("#Question2_OptC").val(),
             OptionD2:$("#Question2_OptD").val(),
-            Answer2: $("#Question2CorrectOpt").val(),
+            Answer2: "Option" + $("#Question2CorrectOpt").val(),
             //3
             Questin3:$("#Question3").val(),
             OptionA3:$("#Question3_OptA").val(),
             OptionB3:$("#Question3_OptB").val(),
             OptionC3:$("#Question3_OptC").val(),
             OptionD3:$("#Question3_OptD").val(),
-            Answer3: $("#Question3CorrectOpt").val(),
+            Answer3: "Option" +$("#Question3CorrectOpt").val(),
             //4
             Questin4:$("#Question4").val(),
             OptionA4:$("#Question4_OptA").val(),
             OptionB4:$("#Question4_OptB").val(),
             OptionC4:$("#Question4_OptC").val(),
             OptionD4:$("#Question4_OptD").val(),
-            Answer4: $("#Question4CorrectOpt").val(),
+            Answer4: "Option" +$("#Question4CorrectOpt").val(),
         },
         url: "../Home/CreateExam",
         success: function (data) {

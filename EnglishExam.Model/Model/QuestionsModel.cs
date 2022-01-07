@@ -9,6 +9,7 @@ namespace EnglishExam.Model.Model
     public class QuestionsModel
     {
         public string Title { get; set; }
+        public string ExamText { get; set; } 
         public string Questin1 { get; set; }
         public string OptionA1 { get; set; }
         public string OptionB1 { get; set; }

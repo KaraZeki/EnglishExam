@@ -13,5 +13,8 @@ namespace EnglishExam.Business.IServices
         public UserReturnModel CreateMultipleExam(QuestionsModel questionsModel);
         public List<Exam> GetExamList();
         public UserReturnModel DeleteExam(int id);
+
+        public ExamViewModel GetAllQuestions(int rowNumber);
+        public List<CheckExamReturnModel> CheckExam(CheckExamModel model);
     }
 }

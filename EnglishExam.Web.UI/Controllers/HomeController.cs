@@ -88,7 +88,7 @@ namespace EnglishExam.Web.UI.Controllers
             string html = webClient.DownloadString(url);
             HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
             document.LoadHtml(html);
-            HtmlNodeCollection htmlNodes = document.DocumentNode.SelectNodes("//div[@class='summary-item__content']/a");//div[@class='summary-list__items']//div[@class='summary-item__content']/a[@class='summary-item-tracking__hed-link']/h2[@class='summary-item__hed']
+            HtmlNodeCollection htmlNodes = document.DocumentNode.SelectNodes("//div[@class='summary-item__content']/a");
             List<string> titles = new List<string>();
             List<string> links = new List<string>();
 

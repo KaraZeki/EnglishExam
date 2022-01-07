@@ -1,9 +1,12 @@
 ﻿using EnglishExam.Business.IServices;
 using EnglishExam.Web.UI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EnglishExam.Web.UI.Controllers
 {
+
+    [Authorize]
     public class ExamListController : Controller
     {
         private readonly IExamService _examService;

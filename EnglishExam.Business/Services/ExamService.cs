@@ -10,9 +10,111 @@ namespace EnglishExam.Business.Services
     public class ExamService : IExamService
     {
         private readonly IGenericRepository<Exam> _examRepository;
-        public ExamService(IGenericRepository<Exam> examRepository)
+        private readonly IGenericRepository<ExamList> _examListRepository;
+        public ExamService(IGenericRepository<Exam> examRepository, IGenericRepository<ExamList> examListRepository)
         {
             _examRepository= examRepository;
+            _examListRepository = examListRepository;
+        }
+
+        public List<CheckExamReturnModel> CheckExam(CheckExamModel model)
+        {
+            var list =new List<CheckExamReturnModel>();
+
+            //1
+            var question1 = _examListRepository.GetById(model.question1Id);
+            if (question1.CorrectAnswer==model.answer1)
+            {
+                list.Add(new CheckExamReturnModel()
+                {
+                    IsCorrect = true,
+                    CorrectAnswer = question1.CorrectAnswer,
+                    UserAnswer = model.answer1,
+                    questionId = question1.Id
+                });
+            }
+            else
+            {
+                list.Add(new CheckExamReturnModel()
+                {
+                    IsCorrect = false,
+                    CorrectAnswer = question1.CorrectAnswer,
+                    UserAnswer = model.answer1,
+                    questionId = question1.Id
+                });
+            }
+
+            //2
+            var question2 = _examListRepository.GetById(model.question2Id);
+
+            if (question2.CorrectAnswer == model.answer2)
+            {
+                list.Add(new CheckExamReturnModel()
+                {
+                    IsCorrect = true,
+                    CorrectAnswer = question2.CorrectAnswer,
+                    UserAnswer = model.answer2,
+                    questionId = question2.Id
+                });
+            }
+            else
+            {
+                list.Add(new CheckExamReturnModel()
+                {
+                    IsCorrect = false,
+                    CorrectAnswer = question2.CorrectAnswer,
+                    UserAnswer = model.answer2,
+                    questionId = question2.Id
+                });
+            }
+
+            //3
+            var question3 = _examListRepository.GetById(model.question3Id);
+            if (question3.CorrectAnswer == model.answer3)
+            {
+                list.Add(new CheckExamReturnModel()
+                {
+                    IsCorrect = true,
+                    CorrectAnswer = question3.CorrectAnswer,
+                    UserAnswer = model.answer3,
+                    questionId = question3.Id
+                });
+            }
+            else
+            {
+                list.Add(new CheckExamReturnModel()
+                {
+                    IsCorrect = false,
+                    CorrectAnswer = question3.CorrectAnswer,
+                    UserAnswer = model.answer3,
+                    questionId = question3.Id
+                });
+            }
+
+
+            //4
+            var question4 = _examListRepository.GetById(model.question4Id);
+            if (question4.CorrectAnswer == model.answer4)
+            {
+                list.Add(new CheckExamReturnModel()
+                {
+                    IsCorrect = true,
+                    CorrectAnswer = question4.CorrectAnswer,
+                    UserAnswer = model.answer4,
+                    questionId = question4.Id
+                });
+            }
+            else
+            {
+                list.Add(new CheckExamReturnModel()
+                {
+                    IsCorrect = false,
+                    CorrectAnswer = question4.CorrectAnswer,
+                    UserAnswer = model.answer4,
+                    questionId = question4.Id
+                });
+            }
+            return list;
         }
 
         public UserReturnModel CreateMultipleExam(QuestionsModel model)
@@ -23,6 +125,7 @@ namespace EnglishExam.Business.Services
             {
                 var exam = new Exam();
                 exam.Title = model.Title;
+                exam.ExamText= model.ExamText;
                 exam.CreatedDate = System.DateTime.Now;
 
                 List<ExamList> examLists = new List<ExamList>();
@@ -98,6 +201,25 @@ namespace EnglishExam.Business.Services
                 returnModel.Message = "Exam has deleted";
             }
             return returnModel;
+        }
+
+        public ExamViewModel GetAllQuestions(int rowNumber=0)
+        {
+            try
+            {
+                var examViewModel = new ExamViewModel();
+                var result = _examRepository.Get(null, null, "ExamLists").Skip(rowNumber).Take(1).FirstOrDefault();
+
+                examViewModel.Exam = result;
+                examViewModel.ExamLists = result.ExamLists.ToList();
+                return examViewModel;
+            }
+            catch (System.Exception ex)
+            {
+
+                throw ex;
+            }
+          
         }
 
         public List<Exam> GetExamList()
