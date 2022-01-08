@@ -20,7 +20,11 @@ namespace EnglishExam.Web.UI.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -49,7 +53,6 @@ namespace EnglishExam.Web.UI.Controllers
         }
         public async Task<IActionResult> LogOut()
         {
-
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Login");
         }

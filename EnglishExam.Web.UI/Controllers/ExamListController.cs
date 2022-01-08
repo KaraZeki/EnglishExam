@@ -14,6 +14,10 @@ namespace EnglishExam.Web.UI.Controllers
         {
             _examService = examService; 
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index( )
         {
             var result = _examService.GetExamList();
@@ -24,17 +28,16 @@ namespace EnglishExam.Web.UI.Controllers
             return View(examView);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult DeleteExam(int id)
         {
             var entity = _examService.DeleteExam(id);
-
-            //TempData.Add("DeleeteMessage", new ResultMessage()
-            //{
-            //    Title = "Silme başarılı",
-            //    Message = "Silme işlemi başarılı bir şekilde gerçekleşti",
-            //    Css = "warning"
-            //});
+            
             return RedirectToAction("Index", "ExamList");
         }
     }

@@ -43,6 +43,7 @@ namespace EnglishExam.Business.ServiceExtensions
             #region Service Extensions
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IExamService, ExamService>();
+            services.AddScoped<ICommonService, CommonService>();
             #endregion
         }
     }

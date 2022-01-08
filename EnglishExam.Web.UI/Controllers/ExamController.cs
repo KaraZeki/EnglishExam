@@ -13,6 +13,11 @@ namespace EnglishExam.Web.UI.Controllers
         {
             _examService= examService;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IActionResult Index(int id=0)
         {
             var  model=_examService.GetAllQuestions(id);
@@ -22,7 +27,11 @@ namespace EnglishExam.Web.UI.Controllers
             }
             return View(null);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult CheckExam(CheckExamModel model)
         {

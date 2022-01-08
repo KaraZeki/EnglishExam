@@ -1,6 +1,7 @@
 ﻿
 $(document).ready(function () {
-   
+    toastr.information("Sınavınız Başlamıştır!");
+    alert("hello")
 });
 
 
