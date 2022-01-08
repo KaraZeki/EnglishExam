@@ -1,8 +1,6 @@
 ﻿
 $(document).ready(function () {
-    //Validation();
-    //toastr.warning("vale has not selected", $('input[type=radio][name=btnradio_1]:checked').length)
-   /* console.log("Selam",$('input[type=radio][name=btnradio_1]:checked').length);*/
+   
 });
 
 
@@ -53,7 +51,7 @@ function CheckExam() {
                 console.log("data", data)
                 var counter = 1;
                 $.each(data, function (index, value) {
-                    console.log("data.IsCorrect", value.isCorrect, "", value.userAnswer, "", value.correctAnswer)
+                    //console.log("data.IsCorrect", value.isCorrect, "", value.userAnswer, "", value.correctAnswer)
                     if (value.isCorrect) {
 
                         //$('#' + value.correctAnswer + '_' + counter).text("").toggleClass("btn-outline-primary btn-outline-Danger");
