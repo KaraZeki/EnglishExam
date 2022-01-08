@@ -56,7 +56,7 @@ $("#btnCreateExam").click(function () {
     var blogTitle = select.options[select.selectedIndex].text;
 
     if (!Validation()) {
-        toastr.warning("please check all content!");
+        toastr.warning("Lütfen tüm alanları doldurunuz!");
     }
     else {
         $.ajax({
@@ -97,7 +97,7 @@ $("#btnCreateExam").click(function () {
             success: function (data) {
                 if (data.isOk) {
                     
-                    toastr.success("Exam has successfully created!")
+                    toastr.success("Sınav oluşturuldu!")
                     ClearCache();
                 } else {
                     toastr.warning(data.message)

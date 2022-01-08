@@ -76,7 +76,7 @@ function CheckExam() {
                 }
                 $("#btnComplateExam").addClass("disabled");
 
-                toastr.success("You done the exam !")
+                toastr.success("Sınavınız Bitmiştir!")
             },
             error: function (xhr, err) {
 
@@ -97,7 +97,7 @@ function ValidationExam() {
         $('input[type=radio][name=btnradio_3]:checked').length == 0 ||
         $('input[type=radio][name=btnradio_4]:checked').length == 0)
     {
-        toastr.warning("Please select all option")
+        toastr.warning("Lütfen tüm seçenekleri işaretleyiniz")
         return false;
     }
     else {
