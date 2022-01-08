@@ -3,20 +3,29 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     int counter = 1;
+    int paginationCount = 1;
+    int rowIndex = 0;
 }
 
 <div class="container-fluid center-block ">
     
 </div>
 <div class="container-fluid center-block w-25 mt-3">
-    <form>
-     <div class="btn-group me-2" role="group" aria-label="First group">
-          <button asp-controller="Home" asp-action="Index" type="button" class="btn-outline-primary">1</button>
-          <button type="button" class="btn-outline-primary">2</button>
-          <button type="button" class="btn-outline-primary">3</button>
-          <button type="button" class="btn-outline-primary">4</button>
+   
+      <div class="btn-group me-2" role="group" aria-label="First group">
+        @if (Model.ExamIds != null)
+        {
+           @foreach(var item in Model.ExamIds)
+           {
+              <button type="button" class="btn-outline-primary"><a href="/Exam/Index/@rowIndex">@paginationCount</a></button>
+              paginationCount++;
+              rowIndex++;
+           }
+
+        }
+          
        </div>
-    </form>
+    
       
 </div>
 
@@ -28,14 +37,14 @@
        @foreach (var item in Model.ExamLists)
         {
           
-            <div class="col-md-6">
+           <div class="col-md-6">
            <p> <b>@counter) </b>@item.Question</p>
             <input type="hidden" id="question_@counter" name="question_@counter" value="@item.Id">
-            <div class="btn-group-vertical w-50" role="group" aria-label="Basic radio toggle button group">
+        <div class="btn-group-vertical w-50" role="group" aria-label="Basic radio toggle button group">
             <input type="radio" class="btn-check" name="btnradio_@counter" id="OptionA_@counter" autocomplete="off">
-            <label class="btn btn-outline-primary" id="lbl_OptionA_@counter" for="OptionA_@counter">@item.OptionA</label>
+            <label class="btn btn-outline-primary " id="lbl_OptionA_@counter" for="OptionA_@counter">@item.OptionA</label>
            
-            <input type="radio" class="btn-check" name="btnradio_@counter" id="OptionB_@counter" autocomplete="off">
+            <input type="radio" class="btn-check " name="btnradio_@counter" id="OptionB_@counter" autocomplete="off">
             <label class="btn btn-outline-primary" id="lbl_OptionB_@counter" for="OptionB_@counter">@item.OptionB</label>
            
            <input type="radio" class="btn-check" name="btnradio_@counter" id="OptionC_@counter" autocomplete="off">
@@ -43,7 +52,7 @@
 
            <input type="radio" class="btn-check" name="btnradio_@counter" id="OptionD_@counter" autocomplete="off">
            <label class="btn btn-outline-primary" id="lbl_OptionD_@counter" for="OptionD_@counter">@item.OptionD</label>
-          </div>
+        </div>
            </div>
          counter++;
         }

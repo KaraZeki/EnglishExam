@@ -23,7 +23,7 @@ namespace EnglishExam.Web.UI.Controllers
             return View(null);
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult CheckExam(CheckExamModel model)
         {
             var checkExams = _examService.CheckExam(model);

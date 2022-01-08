@@ -118,7 +118,7 @@ namespace EnglishExam.Web.UI.Controllers
         [HttpGet]
         public IActionResult GetWebBlogText(string link)
         {
-            if (link!= "Select Value")
+            if (link!= "Bir Başlık Seç")
             {
                 List<string> Text = new List<string>();
                 Uri urlForText = new Uri("https://www.wired.com" + link);
@@ -151,7 +151,7 @@ namespace EnglishExam.Web.UI.Controllers
            var result=  _examService.CreateMultipleExam(questionsModel);
             if (result.IsOk)
             {
-                return Ok();
+                return Ok(result);
             }
             else
             {

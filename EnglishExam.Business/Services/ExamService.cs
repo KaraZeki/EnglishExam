@@ -208,10 +208,14 @@ namespace EnglishExam.Business.Services
             try
             {
                 var examViewModel = new ExamViewModel();
-                var result = _examRepository.Get(null, null, "ExamLists").Skip(rowNumber).Take(1).FirstOrDefault();
-
+                var result = _examRepository.Get(x=>x.IsDeleted!=1, null, "ExamLists").Skip(rowNumber).Take(1).FirstOrDefault();
+                if (result is null)
+                {
+                    return null;
+                }
                 examViewModel.Exam = result;
                 examViewModel.ExamLists = result.ExamLists.ToList();
+                examViewModel.ExamIds=_examRepository.Get(x => x.IsDeleted != 1).Select(x=>x.Id).ToList();
                 return examViewModel;
             }
             catch (System.Exception ex)

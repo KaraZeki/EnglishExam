@@ -8,5 +8,6 @@ namespace EnglishExam.Model.Model
     {
         public Exam Exam { get; set; }
         public List<ExamList> ExamLists { get; set; }
+        public List<int> ExamIds { get; set; }
     }
 }
