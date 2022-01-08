@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int couter = 1;
 }
 <div class="container-fluid">
 
@@ -19,7 +20,7 @@
         @foreach(var item in Model.Exams)
         {
        <tr>
-         <th scope="row">@item.Id</th>
+         <th scope="row">@couter</th>
          <td>@item.Title</td>
          <td>@item.CreatedDate</td>
          <td>
@@ -29,19 +30,10 @@
              </form>
          </td>
        </tr>
+       couter++;
         }
       
-   @* <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td></td>
-    </tr>*@
+   
   </tbody>
 </table>
 
