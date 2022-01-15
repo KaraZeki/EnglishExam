@@ -226,11 +226,7 @@ namespace EnglishExam.Business.Services
           
         }
 
-        public List<Exam> GetExamList()
-        {
-            var examList = _examRepository.Get(x => x.IsDeleted != 1).ToList();
-            return examList;
-            
-        }
+        public List<Exam> GetExamList() => _examRepository.Get(x => x.IsDeleted != 1).ToList();
+      
     }
 }

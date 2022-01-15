@@ -8,10 +8,6 @@ namespace EnglishExam.DataAccess.Context
         public EnglishExamDbContext(DbContextOptions<EnglishExamDbContext> options) : base(options)
         {
         }
-        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlite("Data Source =database.db");
-        //}
         public DbSet<Exam> Exams { get; set; }
         public DbSet<ExamList> ExamLists { get; set; }
         public DbSet<User> Users { get; set; }

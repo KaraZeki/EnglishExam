@@ -68,17 +68,7 @@ namespace EnglishExam.DataAccess.Repository
         }
 
     
-        //private IQueryable<T> Sort<T>(IQueryable<T> queryable, IEnumerable<Sort> sort)
-        //{
-        //    if (sort != null && sort.Any())
-        //    {
-        //        var ordering = string.Join(",", sort.Select(s => $"{s.Field} {s.Dir}"));
-
-        //        return queryable.OrderBy(ordering);
-        //    }
-
-        //    return queryable;
-        //}
+     
 
         private IQueryable<T> Limit<T>(IQueryable<T> queryable, int pageNumber, int pageSize)
         {

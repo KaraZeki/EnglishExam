@@ -16,10 +16,8 @@ namespace EnglishExam.Web.UI.Controllers
         {
             _userService = userService;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
+      
         /// <summary>
         /// 
         /// </summary>
